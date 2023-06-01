@@ -1,12 +1,12 @@
 @extends('installer::layouts.master')
 
 @section('template_title')
-    {{ trans('installer_messages.requirements.templateTitle') }}
+    {{ trans('installer::messages.requirements.templateTitle') }}
 @endsection
 
 @section('title')
     <i class="fa fa-list-ul fa-fw" aria-hidden="true"></i>
-    {{ trans('installer_messages.requirements.title') }}
+    {{ trans('installer::messages.requirements.title') }}
 @endsection
 
 @section('container')
@@ -43,7 +43,7 @@
     @if (!isset($requirements['errors']) && $phpSupportInfo['supported'])
         <div class="buttons">
             <a class="btn button btn-lg" href="{{ route('LaravelInstaller::permissions') }}">
-                {{ trans('installer_messages.requirements.next') }}
+                {{ trans('installer::messages.requirements.next') }}
                 <i class="fa fa-angle-right fa-fw" aria-hidden="true"></i>
             </a>
         </div>

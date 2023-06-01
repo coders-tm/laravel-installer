@@ -25,7 +25,6 @@ class LaravelInstallerServiceProvider extends ServiceProvider
     {
         $this->configure();
         $this->registerPublishing();
-        $this->registerAssets();
         $this->registerResources();
         $this->loadRoutesFrom($this->packagePath('routes/web.php'));
     }
@@ -51,19 +50,19 @@ class LaravelInstallerServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 $this->packagePath('config/installer.php') => base_path('config/installer.php'),
-            ], 'laravelinstaller-config');
+            ], 'installer-config');
 
             $this->publishes([
                 $this->packagePath('public') => public_path('installer'),
-            ], 'laravelinstaller-assets');
+            ], 'installer-assets');
 
             $this->publishes([
                 $this->packagePath('resources/views') => base_path('resources/views/vendor/installer'),
-            ], 'laravelinstaller-views');
+            ], 'installer-views');
 
             $this->publishes([
-                $this->packagePath('resources/lang') => base_path('resources/lang'),
-            ], 'laravelinstaller-lang');
+                $this->packagePath('resources/lang') => base_path('resources/lang/vendor/installer'),
+            ], 'installer-lang');
         }
     }
 
@@ -81,18 +80,6 @@ class LaravelInstallerServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the package assets.
-     *
-     * @return void
-     */
-    protected function registerAssets()
-    {
-        $this->publishes([
-            $this->packagePath('public/installer') => public_path('installer'),
-        ], 'laravelinstaller-assets');
-    }
-
-    /**
      * Register the package resources.
      *
      * @return void
@@ -100,6 +87,7 @@ class LaravelInstallerServiceProvider extends ServiceProvider
     protected function registerResources()
     {
         $this->loadViewsFrom($this->packagePath('resources/views'), 'installer');
+        $this->loadTranslationsFrom($this->packagePath('resources/lang'), 'installer');
     }
 
     protected function packagePath(string $path)

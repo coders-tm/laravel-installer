@@ -7,7 +7,7 @@ return [
      * Shared translations.
      *
      */
-    'title' => 'Laravel Installer',
+    'title' => 'Coderstm Installer',
     'next' => 'Next Step',
     'back' => 'Previous',
     'finish' => 'Install',
@@ -22,9 +22,9 @@ return [
      */
     'welcome' => [
         'templateTitle' => 'Welcome',
-        'title'   => 'Laravel Installer',
-        'message' => 'Easy Installation and Setup Wizard.',
-        'next'    => 'Check Requirements',
+        'title'   => 'Coderstm Installer',
+        'message' => 'Welcome to Coderstm. Before getting started, we need some information on the database. You will need to know the following items before proceeding.',
+        'next'    => "Let's go",
     ],
 
     /*
@@ -74,25 +74,27 @@ return [
                 'name_required' => 'An environment name is required.',
                 'app_name_label' => 'App Name',
                 'app_name_placeholder' => 'App Name',
-                'app_environment_label' => 'App Environment',
-                'app_environment_label_local' => 'Local',
-                'app_environment_label_developement' => 'Development',
-                'app_environment_label_qa' => 'Qa',
-                'app_environment_label_production' => 'Production',
-                'app_environment_label_other' => 'Other',
-                'app_environment_placeholder_other' => 'Enter your environment...',
+                'app_admin_email_label' => 'App Admin Email',
+                'app_admin_email_placeholder' => 'App Admin Email',
+                'app_env_label' => 'App Environment',
+                'app_env_label_local' => 'Local',
+                'app_env_label_developement' => 'Development',
+                'app_env_label_qa' => 'Qa',
+                'app_env_label_production' => 'Production',
+                'app_env_label_other' => 'Other',
+                'app_env_placeholder_other' => 'Enter your environment...',
                 'app_debug_label' => 'App Debug',
                 'app_debug_label_true' => 'True',
                 'app_debug_label_false' => 'False',
-                'app_log_level_label' => 'App Log Level',
-                'app_log_level_label_debug' => 'debug',
-                'app_log_level_label_info' => 'info',
-                'app_log_level_label_notice' => 'notice',
-                'app_log_level_label_warning' => 'warning',
-                'app_log_level_label_error' => 'error',
-                'app_log_level_label_critical' => 'critical',
-                'app_log_level_label_alert' => 'alert',
-                'app_log_level_label_emergency' => 'emergency',
+                'log_level_label' => 'App Log Level',
+                'log_level_label_debug' => 'debug',
+                'log_level_label_info' => 'info',
+                'log_level_label_notice' => 'notice',
+                'log_level_label_warning' => 'warning',
+                'log_level_label_error' => 'error',
+                'log_level_label_critical' => 'critical',
+                'log_level_label_alert' => 'alert',
+                'log_level_label_emergency' => 'emergency',
                 'app_url_label' => 'App Url',
                 'app_url_placeholder' => 'App Url',
                 'db_connection_failed' => 'Could not connect to the database.',
@@ -114,7 +116,7 @@ return [
 
                 'app_tabs' => [
                     'more_info' => 'More Info',
-                    'broadcasting_title' => 'Broadcasting, Caching, Session, &amp; Queue',
+                    'broadcasting_title' => 'Broadcasting, Caching, Session, & Queue',
                     'broadcasting_label' => 'Broadcast Driver',
                     'broadcasting_placeholder' => 'Broadcast Driver',
                     'cache_label' => 'Cache Driver',
@@ -149,6 +151,20 @@ return [
                     'pusher_app_key_palceholder' => 'Pusher App Key',
                     'pusher_app_secret_label' => 'Pusher App Secret',
                     'pusher_app_secret_palceholder' => 'Pusher App Secret',
+
+                    'recaptcha_label' => 'Recaptcha',
+                    'recaptcha_site_key_label' => 'Recaptcha Site Key',
+                    'recaptcha_site_key_palceholder' => '6LfE-w0jAAAAAJKu5mqPTmd2ofZ6eVRtbh55LeHH',
+                    'recaptcha_secret_key_label' => 'Recaptcha Secret Key',
+                    'recaptcha_secret_key_palceholder' => '6LfE-w0jAAAAAN06SHV8jbWvIOPY5OXBDm7u1vao',
+
+                    'stripe_label' => 'Stripe',
+                    'stripe_key_label' => 'Stripe Key',
+                    'stripe_key_palceholder' => 'pk_test_mKQ8m5rUcQoXi9sHSLXnuoKt',
+                    'stripe_secret_label' => 'Stripe Secret',
+                    'stripe_secret_palceholder' => 'sk_test_Cj6i5bZlDKyNW4dSkznIOgJt',
+                    'stripe_webhook_secret_label' => 'Stripe Webhook Secret',
+                    'stripe_webhook_secret_palceholder' => 'whsec_VPAs3s6XcJhxjYjzkmJIB43utn2C7jLs',
                 ],
                 'buttons' => [
                     'setup_database' => 'Setup Database',
@@ -176,7 +192,7 @@ return [
      *
      */
     'installed' => [
-        'success_log_message' => 'Laravel Installer successfully INSTALLED on ',
+        'success_log_message' => 'Coderstm Installer successfully INSTALLED on ',
     ],
 
     /*
@@ -241,7 +257,7 @@ return [
         ],
 
         'log' => [
-            'success_message' => 'Laravel Installer successfully UPDATED on ',
+            'success_message' => 'Coderstm Installer successfully UPDATED on ',
         ],
     ],
 ];

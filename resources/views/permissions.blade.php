@@ -1,12 +1,12 @@
 @extends('installer::layouts.master')
 
 @section('template_title')
-    {{ trans('installer_messages.permissions.templateTitle') }}
+    {{ trans('installer::messages.permissions.templateTitle') }}
 @endsection
 
 @section('title')
     <i class="fa fa-key fa-fw" aria-hidden="true"></i>
-    {{ trans('installer_messages.permissions.title') }}
+    {{ trans('installer::messages.permissions.title') }}
 @endsection
 
 @section('container')
@@ -25,7 +25,7 @@
     @if (!isset($permissions['errors']))
         <div class="buttons">
             <a href="{{ route('LaravelInstaller::environmentWizard') }}" class="btn button btn-lg">
-                {{ trans('installer_messages.permissions.next') }}
+                {{ trans('installer::messages.permissions.next') }}
                 <i class="fa fa-angle-right fa-fw" aria-hidden="true"></i>
             </a>
         </div>

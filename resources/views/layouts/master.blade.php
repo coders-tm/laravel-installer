@@ -8,7 +8,7 @@
     <title>
         @if (trim($__env->yieldContent('template_title')))
             @yield('template_title') |
-        @endif {{ trans('installer_messages.title') }}
+        @endif {{ trans('installer::messages.title') }}
     </title>
     <link rel="icon" type="image/png" href="{{ asset('installer/img/favicon/favicon-16x16.png') }}" sizes="16x16" />
     <link rel="icon" type="image/png" href="{{ asset('installer/img/favicon/favicon-32x32.png') }}" sizes="32x32" />
@@ -103,7 +103,7 @@
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <h6 class="alert-heading">
                             <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
-                            {{ trans('installer_messages.forms.errorTitle') }}
+                            {{ trans('installer::messages.forms.errorTitle') }}
                         </h6>
                         <ul>
                             @foreach ($errors->all() as $error)
