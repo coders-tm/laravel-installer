@@ -1,6 +1,6 @@
 <?php
 
-if (! function_exists('isActive')) {
+if (!function_exists('isActive')) {
     /**
      * Set the active class to the current opened menu.
      *
@@ -19,5 +19,18 @@ if (! function_exists('isActive')) {
         if (strpos(URL::current(), $route)) {
             return $className;
         }
+    }
+}
+
+if (!function_exists('isMultiWord')) {
+    /**
+     * Check if a value is multi-word.
+     *
+     * @param string $value The value to check.
+     * @return bool Returns true if the value is multi-word, false otherwise.
+     */
+    function isMultiWord($value)
+    {
+        return strpos($value, ' ') !== false;
     }
 }

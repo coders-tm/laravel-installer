@@ -16,14 +16,14 @@ class EnvironmentController extends Controller
     /**
      * @var EnvironmentManager
      */
-    protected $EnvironmentManager;
+    protected $environmentManager;
 
     /**
      * @param EnvironmentManager $environmentManager
      */
     public function __construct(EnvironmentManager $environmentManager)
     {
-        $this->EnvironmentManager = $environmentManager;
+        $this->environmentManager = $environmentManager;
     }
 
     /**
@@ -43,7 +43,7 @@ class EnvironmentController extends Controller
      */
     public function environmentWizard()
     {
-        $envConfig = $this->EnvironmentManager->getEnvContent();
+        $envConfig = $this->environmentManager->getEnvContent();
 
         return view('installer::environment-wizard', compact('envConfig'));
     }
@@ -55,7 +55,7 @@ class EnvironmentController extends Controller
      */
     public function environmentClassic()
     {
-        $envConfig = $this->EnvironmentManager->getEnvContent();
+        $envConfig = $this->environmentManager->getEnvContent();
 
         return view('installer::environment-classic', compact('envConfig'));
     }
@@ -69,12 +69,12 @@ class EnvironmentController extends Controller
      */
     public function saveClassic(Request $input, Redirector $redirect)
     {
-        $message = $this->EnvironmentManager->saveFileClassic($input);
+        $message = $this->environmentManager->saveFileClassic($input);
 
         event(new EnvironmentSaved($input));
 
         return $redirect->route('LaravelInstaller::environmentClassic')
-                        ->with(['message' => $message]);
+            ->with(['message' => $message]);
     }
 
     /**
@@ -97,18 +97,18 @@ class EnvironmentController extends Controller
             return $redirect->route('LaravelInstaller::environmentWizard')->withInput()->withErrors($validator->errors());
         }
 
-        if (! $this->checkDatabaseConnection($request)) {
+        if (!$this->checkDatabaseConnection($request)) {
             return $redirect->route('LaravelInstaller::environmentWizard')->withInput()->withErrors([
                 'database_connection' => trans('installer_messages.environment.wizard.form.db_connection_failed'),
             ]);
         }
 
-        $results = $this->EnvironmentManager->saveFileWizard($request);
+        $results = $this->environmentManager->saveFileWizard($request);
 
         event(new EnvironmentSaved($request));
 
         return $redirect->route('LaravelInstaller::database')
-                        ->with(['results' => $results]);
+            ->with(['results' => $results]);
     }
 
     /**
