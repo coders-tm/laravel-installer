@@ -160,11 +160,11 @@ return [
 
                     'stripe_label' => 'Stripe',
                     'stripe_key_label' => 'Stripe Key',
-                    'stripe_key_palceholder' => 'pk_test_mKQ8m5rUcQoXi9sHSLXnuoKt',
+                    'stripe_key_palceholder' => 'pk_test_XXQ8m5rUcQoXi9sHSLXnuMReXX',
                     'stripe_secret_label' => 'Stripe Secret',
-                    'stripe_secret_palceholder' => 'sk_test_Cj6i5bZlDKyNW4dSkznIOgJt',
+                    'stripe_secret_palceholder' => 'sk_test_XX6i5bZlDKyNW4dSkznIOgXX',
                     'stripe_webhook_secret_label' => 'Stripe Webhook Secret',
-                    'stripe_webhook_secret_palceholder' => 'whsec_VPAs3s6XcJhxjYjzkmJIB43utn2C7jLs',
+                    'stripe_webhook_secret_palceholder' => 'whsec_XXAs3s6XcJhxjYjzkmJIB43utn2C7XX',
                 ],
                 'buttons' => [
                     'setup_database' => 'Setup Database',
