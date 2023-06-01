@@ -23,7 +23,10 @@ class LaravelInstallerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->publishFiles();
+        $this->configure();
+        $this->registerPublishing();
+        $this->registerAssets();
+        $this->registerResources();
         $this->loadRoutesFrom($this->packagePath('routes/web.php'));
     }
 
@@ -43,23 +46,60 @@ class LaravelInstallerServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function publishFiles()
+    protected function registerPublishing()
+    {
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                $this->packagePath('config/installer.php') => base_path('config/installer.php'),
+            ], 'laravelinstaller-config');
+
+            $this->publishes([
+                $this->packagePath('public') => public_path('installer'),
+            ], 'laravelinstaller-public');
+
+            $this->publishes([
+                $this->packagePath('views') => base_path('resources/views/vendor/installer'),
+            ], 'laravelinstaller-views');
+
+            $this->publishes([
+                $this->packagePath('lang') => base_path('resources/lang'),
+            ], 'laravelinstaller-lang');
+        }
+    }
+
+    /**
+     * Setup the configuration for Coderstm.
+     *
+     * @return void
+     */
+    protected function configure()
+    {
+        $this->mergeConfigFrom(
+            $this->packagePath('config/installer.php'),
+            'installer'
+        );
+    }
+
+    /**
+     * Register the package assets.
+     *
+     * @return void
+     */
+    protected function registerAssets()
     {
         $this->publishes([
-            $this->packagePath('config/installer.php') => base_path('config/installer.php'),
-        ], 'laravelinstaller-config');
+            $this->packagePath('public/installer') => public_path('installer'),
+        ], 'installer');
+    }
 
-        $this->publishes([
-            $this->packagePath('public') => public_path('installer'),
-        ], 'laravelinstaller-public');
-
-        $this->publishes([
-            $this->packagePath('views') => base_path('resources/views/vendor/installer'),
-        ], 'laravelinstaller-views');
-
-        $this->publishes([
-            $this->packagePath('lang') => base_path('resources/lang'),
-        ], 'laravelinstaller-lang');
+    /**
+     * Register the package resources.
+     *
+     * @return void
+     */
+    protected function registerResources()
+    {
+        $this->loadViewsFrom($this->packagePath('resources/views'), 'installer');
     }
 
     protected function packagePath(string $path)
