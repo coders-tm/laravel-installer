@@ -55,14 +55,14 @@ class LaravelInstallerServiceProvider extends ServiceProvider
 
             $this->publishes([
                 $this->packagePath('public') => public_path('installer'),
-            ], 'laravelinstaller-public');
+            ], 'laravelinstaller-assets');
 
             $this->publishes([
-                $this->packagePath('views') => base_path('resources/views/vendor/installer'),
+                $this->packagePath('resources/views') => base_path('resources/views/vendor/installer'),
             ], 'laravelinstaller-views');
 
             $this->publishes([
-                $this->packagePath('lang') => base_path('resources/lang'),
+                $this->packagePath('resources/lang') => base_path('resources/lang'),
             ], 'laravelinstaller-lang');
         }
     }
@@ -89,7 +89,7 @@ class LaravelInstallerServiceProvider extends ServiceProvider
     {
         $this->publishes([
             $this->packagePath('public/installer') => public_path('installer'),
-        ], 'installer');
+        ], 'laravelinstaller-assets');
     }
 
     /**
