@@ -35,8 +35,8 @@
 
         <form onsubmit="installSubmitted()" method="post" action="{{ route('LaravelInstaller::environmentSaveWizard') }}"
             class="tabs-wrap">
+            @csrf
             <div class="tab" id="tab1content">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="app_domain" value="{{ request()->host() }}">
 
                 <div class="form-group {{ $errors->has('app_name') ? ' has-error ' : '' }}">

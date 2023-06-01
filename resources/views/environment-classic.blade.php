@@ -11,7 +11,7 @@
 @section('container')
 
     <form method="post" action="{{ route('LaravelInstaller::environmentSaveClassic') }}">
-        {!! csrf_field() !!}
+        @csrf
         <textarea class="textarea" name="envConfig">{{ $envConfig }}</textarea>
         <div class="buttons buttons--right">
             <button class="button button--light" type="submit">
