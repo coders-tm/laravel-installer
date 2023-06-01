@@ -1,11 +1,10 @@
 <?php
 
-namespace RachidLaasri\LaravelInstaller\Middleware;
+namespace Coderstm\LaravelInstaller\Middleware;
 
 use Closure;
-use Redirect;
 
-class canInstall
+class CanInstall
 {
     /**
      * Handle an incoming request.

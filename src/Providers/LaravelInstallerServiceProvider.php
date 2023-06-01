@@ -1,11 +1,11 @@
 <?php
 
-namespace RachidLaasri\LaravelInstaller\Providers;
+namespace Coderstm\LaravelInstaller\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
-use RachidLaasri\LaravelInstaller\Middleware\canInstall;
-use RachidLaasri\LaravelInstaller\Middleware\canUpdate;
+use Coderstm\LaravelInstaller\Middleware\CanInstall;
+use Coderstm\LaravelInstaller\Middleware\CanUpdate;
 
 class LaravelInstallerServiceProvider extends ServiceProvider
 {
@@ -24,7 +24,7 @@ class LaravelInstallerServiceProvider extends ServiceProvider
     public function register()
     {
         $this->publishFiles();
-        $this->loadRoutesFrom(__DIR__.'/../Routes/web.php');
+        $this->loadRoutesFrom($this->packagePath('routes/web.php'));
     }
 
     /**
@@ -46,19 +46,24 @@ class LaravelInstallerServiceProvider extends ServiceProvider
     protected function publishFiles()
     {
         $this->publishes([
-            __DIR__.'/../Config/installer.php' => base_path('config/installer.php'),
-        ], 'laravelinstaller');
+            $this->packagePath('config/installer.php') => base_path('config/installer.php'),
+        ], 'laravelinstaller-config');
 
         $this->publishes([
-            __DIR__.'/../assets' => public_path('installer'),
-        ], 'laravelinstaller');
+            $this->packagePath('public') => public_path('installer'),
+        ], 'laravelinstaller-public');
 
         $this->publishes([
-            __DIR__.'/../Views' => base_path('resources/views/vendor/installer'),
-        ], 'laravelinstaller');
+            $this->packagePath('views') => base_path('resources/views/vendor/installer'),
+        ], 'laravelinstaller-views');
 
         $this->publishes([
-            __DIR__.'/../Lang' => base_path('resources/lang'),
-        ], 'laravelinstaller');
+            $this->packagePath('lang') => base_path('resources/lang'),
+        ], 'laravelinstaller-lang');
+    }
+
+    protected function packagePath(string $path)
+    {
+        return __DIR__ . '/../../' . $path;
     }
 }

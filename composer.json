@@ -1,15 +1,11 @@
 {
-    "name": "rachidlaasri/laravel-installer",
+    "name": "coderstm/laravel-installer",
     "description": "Laravel web installer",
     "license": "MIT",
     "authors": [
         {
-            "name": "Rachid Laasri",
-            "email": "rashidlaasri@gmail.com"
-        },
-        {
-            "name": "Jeremy Kenedy",
-            "email": "jeremykenedy@gmail.com"
+            "name": "Dipak Sarkar",
+            "email": "hello@dipaksarkar.in"
         }
     ],
     "require": {
@@ -17,16 +13,16 @@
     },
     "autoload": {
         "psr-4": {
-            "RachidLaasri\\LaravelInstaller\\": "src/"
+            "Coderstm\\LaravelInstaller\\": "src/"
         },
         "files": [
-            "src/Helpers/functions.php"
+            "lib/helpers.php"
         ]
     },
     "extra": {
         "laravel": {
             "providers": [
-                "RachidLaasri\\LaravelInstaller\\Providers\\LaravelInstallerServiceProvider"
+                "Coderstm\\LaravelInstaller\\Providers\\LaravelInstallerServiceProvider"
             ]
         }
     },
