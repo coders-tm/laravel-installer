@@ -1,10 +1,12 @@
-# Laravel Web Installer | A Web Installer [Package](https://packagist.org/packages/coderstm/laravel-installer)
+# coderstm/laravel-installer
 
-[![Total Downloads](https://poser.pugx.org/coderstm/laravel-installer/d/total.svg)](https://packagist.org/packages/coderstm/laravel-installer)
-[![Latest Stable Version](https://poser.pugx.org/coderstm/laravel-installer/v/stable.svg)](https://packagist.org/packages/coderstm/laravel-installer)
-[![License](https://poser.pugx.org/coderstm/laravel-installer/license.svg)](https://packagist.org/packages/coderstm/laravel-installer)
+<p align="center">
+<a href="https://packagist.org/packages/coderstm/laravel-installer"><img src="https://img.shields.io/packagist/dt/coderstm/laravel-installer" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/coderstm/laravel-installer"><img src="https://img.shields.io/packagist/v/coderstm/laravel-installer" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/coderstm/laravel-installer"><img src="https://img.shields.io/packagist/l/coderstm/laravel-installer" alt="License"></a>
+</p>
 
-- [Laravel Web Installer | A Web Installer Package](#laravel-web-installer--a-web-installer-package)
+- [coderstm/laravel-installer](#coderstmlaravel-installer)
 	- [About](#about)
 	- [Requirements](#requirements)
 	- [Installation](#installation)
