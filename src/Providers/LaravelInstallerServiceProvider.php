@@ -2,7 +2,7 @@
 
 namespace Coderstm\LaravelInstaller\Providers;
 
-use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Coderstm\LaravelInstaller\Middleware\CanInstall;
 use Coderstm\LaravelInstaller\Middleware\CanUpdate;
@@ -30,14 +30,24 @@ class LaravelInstallerServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap the application events.
+     * Bootstrap any application services.
      *
-     * @param \Illuminate\Routing\Router $router
+     * @return void
      */
-    public function boot(Router $router)
+    public function boot()
     {
-        $router->middlewareGroup('install', [CanInstall::class]);
-        $router->middlewareGroup('update', [CanUpdate::class]);
+        $this->registerRouteMiddleware();
+    }
+
+    /**
+     * Register the package route middlewares.
+     *
+     * @return void
+     */
+    protected function registerRouteMiddleware()
+    {
+        Route::aliasMiddleware('install', CanInstall::class);
+        Route::aliasMiddleware('update', CanUpdate::class);
     }
 
     /**
