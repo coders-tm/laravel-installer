@@ -148,6 +148,23 @@
                     @endif
                 </div>
 
+                <div class="form-group {{ $errors->has('cashier_currency') ? ' has-error ' : '' }}">
+                    <label for="cashier_currency">
+                        App currency
+                    </label>
+                    <select name="cashier_currency" id="cashier_currency">
+                        @foreach (curriencies() as $key => $name)
+                            <option value="{{$key}}" @selected($key == 'usd')>{{$name}}</option>
+                        @endforeach
+                    </select>
+                    @if ($errors->has('cashier_currency'))
+                        <span class="error-block">
+                            <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
+                            {{ $errors->first('cashier_currency') }}
+                        </span>
+                    @endif
+                </div>
+
                 <div class="form-group {{ $errors->has('app_url') ? ' has-error ' : '' }}">
                     <label for="app_url">
                         {{ trans('installer::messages.environment.wizard.form.app_url_label') }}

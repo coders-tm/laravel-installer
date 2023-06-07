@@ -98,6 +98,7 @@ return [
                 'pusher_app_secret'     => 'max:50',
                 'recaptcha_site_key'    => 'required|string|max:50',
                 'recaptcha_secret_key'  => 'required|string|max:50',
+                'cashier_currency'    => 'required|string',
                 'stripe_key'    => 'required|string|max:100',
                 'stripe_secret'  => 'required|string|max:100',
                 'stripe_webhook_secret'  => 'required|string|max:100',

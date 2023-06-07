@@ -34,3 +34,15 @@ if (!function_exists('isMultiWord')) {
         return strpos($value, ' ') !== false;
     }
 }
+
+if (!function_exists('curriencies')) {
+    function curriencies() : array
+    {
+        $content = file_get_contents(__DIR__ . '/CURRENCIES');
+        $lines = explode("\n", $content);
+
+        return collect($lines)->mapWithKeys(function ($item) {
+            return [strtolower(trim($item)) => $item];
+        })->toArray();
+    }
+}
