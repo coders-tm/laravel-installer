@@ -56,7 +56,9 @@ Register the package with laravel in `config/app.php` under `providers` with the
 3. Publish the packages views, config file, assets, and language files by running the following from your projects root folder:
 
 ```bash
+    php artisan vendor:publish --tag=installer-config
     php artisan vendor:publish --tag=installer-lang
+    php artisan vendor:publish --tag=installer-assets
 ```
 
 ## Routes
