@@ -89,10 +89,10 @@
                         <input type="text" name="app_env_custom" id="app_env_custom"
                             placeholder="{{ trans('installer::messages.environment.wizard.form.app_env_placeholder_other') }}" />
                     </div>
-                    @if ($errors->has('app_name'))
+                    @if ($errors->has('app_env'))
                         <span class="error-block">
                             <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
-                            {{ $errors->first('app_name') }}
+                            {{ $errors->first('app_env') }}
                         </span>
                     @endif
                 </div>
@@ -102,11 +102,11 @@
                         {{ trans('installer::messages.environment.wizard.form.app_debug_label') }}
                     </label>
                     <label for="app_debug_true">
-                        <input type="radio" name="app_debug" id="app_debug_true" value=true  />
+                        <input type="radio" name="app_debug" id="app_debug_true" value=true />
                         {{ trans('installer::messages.environment.wizard.form.app_debug_label_true') }}
                     </label>
                     <label for="app_debug_false">
-                        <input type="radio" name="app_debug" id="app_debug_false" value=false checked/>
+                        <input type="radio" name="app_debug" id="app_debug_false" value=false checked />
                         {{ trans('installer::messages.environment.wizard.form.app_debug_label_false') }}
                     </label>
                     @if ($errors->has('app_debug'))
@@ -154,7 +154,7 @@
                     </label>
                     <select name="cashier_currency" id="cashier_currency">
                         @foreach (curriencies() as $key => $name)
-                            <option value="{{$key}}" @selected($key == 'usd')>{{$name}}</option>
+                            <option value="{{ $key }}" @selected($key == 'usd')>{{ $name }}</option>
                         @endforeach
                     </select>
                     @if ($errors->has('cashier_currency'))
