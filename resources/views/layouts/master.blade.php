@@ -119,8 +119,8 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('statics/js/jquery-3.6.0.min.js') }}"></script>
-    <script src="{{ asset('statics/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('installer/js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('installer/js/bootstrap.min.js') }}"></script>
     @yield('scripts')
 </body>
 
