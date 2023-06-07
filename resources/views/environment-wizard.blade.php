@@ -72,14 +72,14 @@
                         {{ trans('installer::messages.environment.wizard.form.app_env_label') }}
                     </label>
                     <select name="app_env" id="environment" onchange='checkEnvironment(this.value);'>
-                        <option value="local" selected>
+                        <option value="local">
                             {{ trans('installer::messages.environment.wizard.form.app_env_label_local') }}</option>
                         <option value="development">
                             {{ trans('installer::messages.environment.wizard.form.app_env_label_developement') }}
                         </option>
                         <option value="qa">
                             {{ trans('installer::messages.environment.wizard.form.app_env_label_qa') }}</option>
-                        <option value="production">
+                        <option value="production" selected>
                             {{ trans('installer::messages.environment.wizard.form.app_env_label_production') }}
                         </option>
                         <option value="other">
@@ -102,11 +102,11 @@
                         {{ trans('installer::messages.environment.wizard.form.app_debug_label') }}
                     </label>
                     <label for="app_debug_true">
-                        <input type="radio" name="app_debug" id="app_debug_true" value=true checked />
+                        <input type="radio" name="app_debug" id="app_debug_true" value=true  />
                         {{ trans('installer::messages.environment.wizard.form.app_debug_label_true') }}
                     </label>
                     <label for="app_debug_false">
-                        <input type="radio" name="app_debug" id="app_debug_false" value=false />
+                        <input type="radio" name="app_debug" id="app_debug_false" value=false checked/>
                         {{ trans('installer::messages.environment.wizard.form.app_debug_label_false') }}
                     </label>
                     @if ($errors->has('app_debug'))
