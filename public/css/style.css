@@ -3879,7 +3879,7 @@ input[type="text"] {
 }
 
 .master {
-    background-image: url("../img/background.png");
+    background-image: url("../img/background.jpg");
     background-size: cover;
     background-position: top;
     min-height: 100vh;
