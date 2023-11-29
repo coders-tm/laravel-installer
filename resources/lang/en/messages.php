@@ -97,6 +97,8 @@ return [
                 'log_level_label_emergency' => 'emergency',
                 'app_url_label' => 'App Url',
                 'app_url_placeholder' => 'App Url',
+                'license_key_label' => 'License Key',
+                'license_key_placeholder' => '7|XXqgp67S5AyXXXXXX73KK8d4OHyTkIHiSBrmUaXX',
                 'db_connection_failed' => 'Could not connect to the database.',
                 'db_connection_label' => 'Database Connection',
                 'db_connection_label_mysql' => 'mysql',

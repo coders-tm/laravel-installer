@@ -143,8 +143,6 @@ class EnvironmentManager
     {
         $lines = explode(PHP_EOL, $this->getEnvContent());
 
-        logger($values);
-
         foreach ($lines as &$line) {
             $keyValue = explode('=', $line, 2);
             $key = trim($keyValue[0]);
@@ -160,6 +158,7 @@ class EnvironmentManager
         }
 
         $updatedContent = implode(PHP_EOL, $lines);
+
         file_put_contents($this->envPath, $updatedContent);
     }
 }

@@ -97,6 +97,7 @@ return [
                 'recaptcha_secret_key'  => 'required|string',
                 'cashier_currency'    => 'required|string',
                 'stripe_key'    => 'required|string',
+                'license_key'    => 'required|string',
                 'stripe_secret'  => 'required|string',
                 'stripe_webhook_secret'  => 'required|string',
             ],

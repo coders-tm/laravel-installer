@@ -43,7 +43,7 @@
                     <label for="app_name">
                         {{ trans('installer::messages.environment.wizard.form.app_name_label') }}
                     </label>
-                    <input type="text" name="app_name" id="app_name" value=""
+                    <input type="text" name="app_name" id="app_name" value="{{ old('app_name') }}"
                         placeholder="{{ trans('installer::messages.environment.wizard.form.app_name_placeholder') }}" />
                     @if ($errors->has('app_name'))
                         <span class="error-block">
@@ -57,7 +57,7 @@
                     <label for="app_admin_email">
                         {{ trans('installer::messages.environment.wizard.form.app_admin_email_label') }}
                     </label>
-                    <input type="text" name="app_admin_email" id="app_admin_email" value=""
+                    <input type="text" name="app_admin_email" id="app_admin_email" value="{{ old('app_admin_email') }}"
                         placeholder="{{ trans('installer::messages.environment.wizard.form.app_admin_email_placeholder') }}" />
                     @if ($errors->has('app_admin_email'))
                         <span class="error-block">
@@ -73,17 +73,20 @@
                     </label>
                     <select name="app_env" id="environment" onchange='checkEnvironment(this.value);'>
                         <option value="local">
-                            {{ trans('installer::messages.environment.wizard.form.app_env_label_local') }}</option>
+                            {{ trans('installer::messages.environment.wizard.form.app_env_label_local') }}
+                        </option>
                         <option value="development">
                             {{ trans('installer::messages.environment.wizard.form.app_env_label_developement') }}
                         </option>
                         <option value="qa">
-                            {{ trans('installer::messages.environment.wizard.form.app_env_label_qa') }}</option>
+                            {{ trans('installer::messages.environment.wizard.form.app_env_label_qa') }}
+                        </option>
                         <option value="production" selected>
                             {{ trans('installer::messages.environment.wizard.form.app_env_label_production') }}
                         </option>
                         <option value="other">
-                            {{ trans('installer::messages.environment.wizard.form.app_env_label_other') }}</option>
+                            {{ trans('installer::messages.environment.wizard.form.app_env_label_other') }}
+                        </option>
                     </select>
                     <div id="app_env_text_input" style="display: none;">
                         <input type="text" name="app_env_custom" id="app_env_custom"
@@ -102,11 +105,11 @@
                         {{ trans('installer::messages.environment.wizard.form.app_debug_label') }}
                     </label>
                     <label for="app_debug_true">
-                        <input type="radio" name="app_debug" id="app_debug_true" value=true />
+                        <input type="radio" name="app_debug" id="app_debug_true" value="true" />
                         {{ trans('installer::messages.environment.wizard.form.app_debug_label_true') }}
                     </label>
                     <label for="app_debug_false">
-                        <input type="radio" name="app_debug" id="app_debug_false" value=false checked />
+                        <input type="radio" name="app_debug" id="app_debug_false" value="false" checked />
                         {{ trans('installer::messages.environment.wizard.form.app_debug_label_false') }}
                     </label>
                     @if ($errors->has('app_debug'))
@@ -123,19 +126,26 @@
                     </label>
                     <select name="log_level" id="log_level">
                         <option value="debug" selected>
-                            {{ trans('installer::messages.environment.wizard.form.log_level_label_debug') }}</option>
+                            {{ trans('installer::messages.environment.wizard.form.log_level_label_debug') }}
+                        </option>
                         <option value="info">
-                            {{ trans('installer::messages.environment.wizard.form.log_level_label_info') }}</option>
+                            {{ trans('installer::messages.environment.wizard.form.log_level_label_info') }}
+                        </option>
                         <option value="notice">
-                            {{ trans('installer::messages.environment.wizard.form.log_level_label_notice') }}</option>
+                            {{ trans('installer::messages.environment.wizard.form.log_level_label_notice') }}
+                        </option>
                         <option value="warning">
-                            {{ trans('installer::messages.environment.wizard.form.log_level_label_warning') }}</option>
+                            {{ trans('installer::messages.environment.wizard.form.log_level_label_warning') }}
+                        </option>
                         <option value="error">
-                            {{ trans('installer::messages.environment.wizard.form.log_level_label_error') }}</option>
+                            {{ trans('installer::messages.environment.wizard.form.log_level_label_error') }}
+                        </option>
                         <option value="critical">
-                            {{ trans('installer::messages.environment.wizard.form.log_level_label_critical') }}</option>
+                            {{ trans('installer::messages.environment.wizard.form.log_level_label_critical') }}
+                        </option>
                         <option value="alert">
-                            {{ trans('installer::messages.environment.wizard.form.log_level_label_alert') }}</option>
+                            {{ trans('installer::messages.environment.wizard.form.log_level_label_alert') }}
+                        </option>
                         <option value="emergency">
                             {{ trans('installer::messages.environment.wizard.form.log_level_label_emergency') }}
                         </option>
@@ -154,7 +164,9 @@
                     </label>
                     <select name="cashier_currency" id="cashier_currency">
                         @foreach (curriencies() as $key => $name)
-                            <option value="{{ $key }}" @selected($key == 'usd')>{{ $name }}</option>
+                            <option value="{{ $key }}" @selected($key == old('cashier_currency', 'usd'))>
+                                {{ $name }}
+                            </option>
                         @endforeach
                     </select>
                     @if ($errors->has('cashier_currency'))
@@ -179,6 +191,20 @@
                     @endif
                 </div>
 
+                <div class="form-group {{ $errors->has('license_key') ? ' has-error ' : '' }}">
+                    <label for="license_key">
+                        {{ trans('installer::messages.environment.wizard.form.license_key_label') }}
+                    </label>
+                    <input type="text" name="license_key" id="license_key" value="{{ old('license_key') }}"
+                        placeholder="{{ trans('installer::messages.environment.wizard.form.license_key_placeholder') }}" />
+                    @if ($errors->has('license_key'))
+                        <span class="error-block">
+                            <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
+                            {{ $errors->first('license_key') }}
+                        </span>
+                    @endif
+                </div>
+
                 <div class="buttons">
                     <button class="btn button btn-lg" onclick="showDatabaseSettings();return false">
                         {{ trans('installer::messages.environment.wizard.form.buttons.setup_database') }}
@@ -194,13 +220,17 @@
                     </label>
                     <select name="database_connection" id="database_connection">
                         <option value="mysql" selected>
-                            {{ trans('installer::messages.environment.wizard.form.db_connection_label_mysql') }}</option>
+                            {{ trans('installer::messages.environment.wizard.form.db_connection_label_mysql') }}
+                        </option>
                         <option value="sqlite">
-                            {{ trans('installer::messages.environment.wizard.form.db_connection_label_sqlite') }}</option>
+                            {{ trans('installer::messages.environment.wizard.form.db_connection_label_sqlite') }}
+                        </option>
                         <option value="pgsql">
-                            {{ trans('installer::messages.environment.wizard.form.db_connection_label_pgsql') }}</option>
+                            {{ trans('installer::messages.environment.wizard.form.db_connection_label_pgsql') }}
+                        </option>
                         <option value="sqlsrv">
-                            {{ trans('installer::messages.environment.wizard.form.db_connection_label_sqlsrv') }}</option>
+                            {{ trans('installer::messages.environment.wizard.form.db_connection_label_sqlsrv') }}
+                        </option>
                     </select>
                     @if ($errors->has('database_connection'))
                         <span class="error-block">
@@ -214,7 +244,8 @@
                     <label for="database_hostname">
                         {{ trans('installer::messages.environment.wizard.form.db_host_label') }}
                     </label>
-                    <input type="text" name="database_hostname" id="database_hostname" value="127.0.0.1"
+                    <input type="text" name="database_hostname" id="database_hostname"
+                        value="{{ old('database_hostname', '127.0.0.1') }}"
                         placeholder="{{ trans('installer::messages.environment.wizard.form.db_host_placeholder') }}" />
                     @if ($errors->has('database_hostname'))
                         <span class="error-block">
@@ -242,7 +273,7 @@
                     <label for="database_name">
                         {{ trans('installer::messages.environment.wizard.form.db_name_label') }}
                     </label>
-                    <input type="text" name="database_name" id="database_name" value=""
+                    <input type="text" name="database_name" id="database_name" value="{{ old('database_name') }}"
                         placeholder="{{ trans('installer::messages.environment.wizard.form.db_name_placeholder') }}" />
                     @if ($errors->has('database_name'))
                         <span class="error-block">
@@ -256,7 +287,8 @@
                     <label for="database_username">
                         {{ trans('installer::messages.environment.wizard.form.db_username_label') }}
                     </label>
-                    <input type="text" name="database_username" id="database_username" value=""
+                    <input type="text" name="database_username" id="database_username"
+                        value="{{ old('database_username') }}"
                         placeholder="{{ trans('installer::messages.environment.wizard.form.db_username_placeholder') }}" />
                     @if ($errors->has('database_username'))
                         <span class="error-block">
@@ -270,7 +302,8 @@
                     <label for="database_password">
                         {{ trans('installer::messages.environment.wizard.form.db_password_label') }}
                     </label>
-                    <input type="password" name="database_password" id="database_password" value=""
+                    <input type="password" name="database_password" id="database_password"
+                        value="{{ old('database_password') }}"
                         placeholder="{{ trans('installer::messages.environment.wizard.form.db_password_placeholder') }}" />
                     @if ($errors->has('database_password'))
                         <span class="error-block">
@@ -308,7 +341,7 @@
                                     </a>
                                 </sup>
                             </label>
-                            <input type="text" name="stripe_key" id="stripe_key" value=""
+                            <input type="text" name="stripe_key" id="stripe_key" value="{{ old('stripe_key') }}"
                                 placeholder="{{ trans('installer::messages.environment.wizard.form.app_tabs.stripe_key_palceholder') }}" />
                             @if ($errors->has('stripe_key'))
                                 <span class="error-block">
@@ -320,7 +353,8 @@
                         <div class="form-group {{ $errors->has('stripe_secret') ? ' has-error ' : '' }}">
                             <label
                                 for="stripe_secret">{{ trans('installer::messages.environment.wizard.form.app_tabs.stripe_secret_label') }}</label>
-                            <input type="text" name="stripe_secret" id="stripe_secret" value=""
+                            <input type="text" name="stripe_secret" id="stripe_secret"
+                                value="{{ old('stripe_secret') }}"
                                 placeholder="{{ trans('installer::messages.environment.wizard.form.app_tabs.stripe_secret_palceholder') }}" />
                             @if ($errors->has('stripe_secret'))
                                 <span class="error-block">
@@ -332,7 +366,8 @@
                         <div class="form-group {{ $errors->has('stripe_webhook_secret') ? ' has-error ' : '' }}">
                             <label
                                 for="stripe_webhook_secret">{{ trans('installer::messages.environment.wizard.form.app_tabs.stripe_webhook_secret_label') }}</label>
-                            <input type="text" name="stripe_webhook_secret" id="stripe_webhook_secret" value=""
+                            <input type="text" name="stripe_webhook_secret" id="stripe_webhook_secret"
+                                value="{{ old('stripe_webhook_secret') }}"
                                 placeholder="{{ trans('installer::messages.environment.wizard.form.app_tabs.stripe_webhook_secret_palceholder') }}" />
                             @if ($errors->has('stripe_webhook_secret'))
                                 <span class="error-block">
@@ -363,7 +398,8 @@
                                     </a>
                                 </sup>
                             </label>
-                            <input type="text" name="recaptcha_site_key" id="recaptcha_site_key" value=""
+                            <input type="text" name="recaptcha_site_key" id="recaptcha_site_key"
+                                value="{{ old('recaptcha_site_key') }}"
                                 placeholder="{{ trans('installer::messages.environment.wizard.form.app_tabs.recaptcha_site_key_palceholder') }}" />
                             @if ($errors->has('recaptcha_site_key'))
                                 <span class="error-block">
@@ -375,7 +411,8 @@
                         <div class="form-group {{ $errors->has('recaptcha_secret_key') ? ' has-error ' : '' }}">
                             <label
                                 for="recaptcha_secret_key">{{ trans('installer::messages.environment.wizard.form.app_tabs.recaptcha_secret_key_label') }}</label>
-                            <input type="text" name="recaptcha_secret_key" id="recaptcha_secret_key" value=""
+                            <input type="text" name="recaptcha_secret_key" id="recaptcha_secret_key"
+                                value="{{ old('recaptcha_secret_key') }}"
                                 placeholder="{{ trans('installer::messages.environment.wizard.form.app_tabs.recaptcha_secret_key_palceholder') }}" />
                             @if ($errors->has('recaptcha_secret_key'))
                                 <span class="error-block">
