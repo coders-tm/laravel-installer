@@ -60,7 +60,6 @@ return [
             'title' => 'Environment Settings',
             'desc' => 'Please select how you want to configure the apps <code>.env</code> file.',
             'wizard-button' => 'Form Wizard Setup',
-            'classic-button' => 'Classic Text Editor',
         ],
         'wizard' => [
             'templateTitle' => 'Step 3 | Environment Settings | Guided Wizard',
@@ -174,13 +173,6 @@ return [
                     'install' => 'Install',
                 ],
             ],
-        ],
-        'classic' => [
-            'templateTitle' => 'Step 3 | Environment Settings | Classic Editor',
-            'title' => 'Classic Environment Editor',
-            'save' => 'Save .env',
-            'back' => 'Use Form Wizard',
-            'install' => 'Save and Install',
         ],
         'success' => 'Your .env file settings have been saved.',
         'errors' => 'Unable to save the .env file, Please create it manually.',

@@ -7,11 +7,6 @@ Route::group(['prefix' => 'install', 'as' => 'LaravelInstaller::', 'namespace' =
     ]);
 
     Route::get('environment', [
-        'as' => 'environment',
-        'uses' => 'EnvironmentController@environmentMenu',
-    ]);
-
-    Route::get('environment/wizard', [
         'as' => 'environmentWizard',
         'uses' => 'EnvironmentController@environmentWizard',
     ]);
@@ -19,16 +14,6 @@ Route::group(['prefix' => 'install', 'as' => 'LaravelInstaller::', 'namespace' =
     Route::post('environment/saveWizard', [
         'as' => 'environmentSaveWizard',
         'uses' => 'EnvironmentController@saveWizard',
-    ]);
-
-    Route::get('environment/classic', [
-        'as' => 'environmentClassic',
-        'uses' => 'EnvironmentController@environmentClassic',
-    ]);
-
-    Route::post('environment/saveClassic', [
-        'as' => 'environmentSaveClassic',
-        'uses' => 'EnvironmentController@saveClassic',
     ]);
 
     Route::get('requirements', [
