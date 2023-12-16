@@ -70,7 +70,7 @@ Register the package with laravel in `config/app.php` under `providers` with the
 
 * **Install Routes Notes**
 	* In order to install your application, go to the `/install` route and follow the instructions.
-	* Once the installation has ran the empty file `installed` will be placed into the `/storage` directory. If this file is present the route `/install` will abort to the 404 page.
+	* Once the installation has ran the empty file `.installed` will be placed into the `/storage` directory. If this file is present the route `/install` will abort to the 404 page.
 
 * **Update Route Notes**
 	* In order to update your application, go to the `/update` route and follow the instructions.

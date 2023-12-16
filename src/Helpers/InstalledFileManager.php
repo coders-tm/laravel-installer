@@ -11,7 +11,7 @@ class InstalledFileManager
      */
     public function create()
     {
-        $installedLogFile = storage_path('installed');
+        $installedLogFile = storage_path('.installed');
 
         $dateStamp = date('Y/m/d h:i:sa');
 

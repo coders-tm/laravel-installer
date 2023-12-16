@@ -19,10 +19,10 @@
     <pre><code>{{ $finalMessages }}</code></pre>
 
     <p><strong><small>{{ trans('installer::messages.final.log') }}</small></strong></p>
-    <pre><code>{{ $finalStatusMessage }}</code></pre>
+    <pre class="p-4"><code>{{ $finalStatusMessage }}</code></pre>
 
     <p><strong><small>{{ trans('installer::messages.final.env') }}</small></strong></p>
-    <pre><code>{{ $finalEnvFile }}</code></pre>
+    <pre class="scroll-area p-4"><code>{{ $finalEnvFile }}</code></pre>
 
     <div class="buttons">
         <a href="{{ url('/') }}" class="btn button btn-lg">{{ trans('installer::messages.final.exit') }}</a>
