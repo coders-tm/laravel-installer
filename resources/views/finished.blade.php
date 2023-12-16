@@ -12,7 +12,7 @@
 @section('container')
     @if (session('message')['dbOutputLog'])
         <p><strong><small>{{ trans('installer::messages.final.migration') }}</small></strong></p>
-        <pre><code>{{ session('message')['dbOutputLog'] }}</code></pre>
+        <pre class="scroll-area"><code>{{ session('message')['dbOutputLog'] }}</code></pre>
     @endif
 
     <p><strong><small>{{ trans('installer::messages.final.console') }}</small></strong></p>
