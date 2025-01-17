@@ -249,7 +249,7 @@
                 </div>
             </div>
 
-            <div class="col-12">
+            {{-- <div class="col-12">
                 <h5 class="mb-3">
                     {{ trans('installer::messages.environment.wizard.form.app_tabs.stripe_label') }}
                     <a href="https://dashboard.stripe.com/test/apikeys" target="_blank"
@@ -342,7 +342,7 @@
                         @endif
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
         <div class="col-12 mt-3 text-center">

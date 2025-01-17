@@ -13,7 +13,7 @@ return [
     |
     */
     'core' => [
-        'minPhpVersion' => '8.1.0',
+        'minPhpVersion' => '8.2.0',
     ],
     'final' => [
         'key' => true,
@@ -79,13 +79,13 @@ return [
                 'database_name'         => 'required|string',
                 'database_username'     => 'required|string',
                 'database_password'     => 'nullable|string',
-                'recaptcha_site_key'    => 'required|string',
-                'recaptcha_secret_key'  => 'required|string',
-                'cashier_currency'    => 'required|string',
-                'stripe_key'    => 'required|string',
-                'license_key'    => 'required|string',
-                'stripe_secret'  => 'required|string',
-                'stripe_webhook_secret'  => 'required|string',
+                'recaptcha_site_key'    => 'nullable|string',
+                'recaptcha_secret_key'  => 'nullable|string',
+                'cashier_currency'    => 'nullable|string',
+                'stripe_key'    => 'nullable|string',
+                'license_key'    => 'nullable|string',
+                'stripe_secret'  => 'nullable|string',
+                'stripe_webhook_secret'  => 'nullable|string',
             ],
         ],
     ],
